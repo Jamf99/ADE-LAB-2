@@ -153,5 +153,11 @@
          </font>
       </Label>
       <CheckBox fx:id="isPlatformMode" layoutX="220.0" layoutY="330.0" mnemonicParsing="false" onAction="#isPlatformMode" text="Platform mode?" />
+      <Separator layoutX="382.0" layoutY="310.0" prefHeight="0.0" prefWidth="374.0" />
+      <Label layoutX="500.0" layoutY="324.0" prefHeight="28.0" prefWidth="139.0" text="San Valentín Mode" textFill="#d00909">
+         <font>
+            <Font name="Palatino Linotype Bold" size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

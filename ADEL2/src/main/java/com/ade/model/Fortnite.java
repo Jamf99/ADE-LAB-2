@@ -3,7 +3,7 @@ package com.ade.model;
 import com.ade.estructures.LinkedList;
 import com.ade.estructures.Queue;
 
-public class Fornite {
+public class Fortnite {
 	
 	private Plataform[] plataforms;
 	
@@ -11,7 +11,7 @@ public class Fornite {
 	private Queue<Player> noobLow, noobMid, noobHigh, mediumLow, mediumMid, mediumHigh, 
 		proLow, proMid, proHigh;
 	
-	public Fornite(boolean havePlatform) {
+	public Fortnite(boolean havePlatform) {
 		if(havePlatform == true) {
 			plataforms = new Plataform[5];
 			plataforms[0] = new Plataform("PlayStation");

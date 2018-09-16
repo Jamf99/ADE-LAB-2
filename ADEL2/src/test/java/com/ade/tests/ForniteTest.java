@@ -1,8 +1,7 @@
 package com.ade.tests;
 
 import org.junit.Test;
-
-import com.ade.model.Fornite;
+import com.ade.model.Fortnite;
 import com.ade.model.Plataform;
 import com.ade.model.Player;
 
@@ -17,10 +16,10 @@ public class ForniteTest extends TestCase{
 //	private Plataform plataformN;
 //	private Plataform plataformS;
 //	private Plataform plataformPC;
-	private Fornite fornite;
+	private Fortnite fortnite;
 	
 	private void stage1() {
-		fornite = new Fornite(false);
+		fortnite = new Fortnite(false);
 		
 	}
 	
@@ -28,12 +27,12 @@ public class ForniteTest extends TestCase{
 	public void testAddPlayer() {
 		stage1();
 		player = new Player("Ninja", 60, 20, 20, 50, 0);
-		fornite.addPlayer(player, false);
-		assertNotNull(fornite.getProLow().getFront());
+		fortnite.addPlayer(player, false);
+		assertNotNull(fortnite.getProLow().getFront());
 	}
 	
 	private void stage2() {
-		fornite = new Fornite(true);
+		fortnite = new Fortnite(true);
 		
 	}
 	
@@ -46,56 +45,56 @@ public class ForniteTest extends TestCase{
 		Plataform plataformSmartphone = new Plataform("Smartphone");
 		Plataform plataformPC = new Plataform("PC");
 		boolean test = false;
-		test = plataformPlay.getName().equals(fornite.getPlataforms()[0].getName());
-		test = plataformXbox.getName().equals(fornite.getPlataforms()[1].getName());
-		test = plataformNintendo.getName().equals(fornite.getPlataforms()[2].getName());
-		test = plataformSmartphone.getName().equals(fornite.getPlataforms()[3].getName());
-		test = plataformPC.getName().equals(fornite.getPlataforms()[4].getName());
+		test = plataformPlay.getName().equals(fortnite.getPlataforms()[0].getName());
+		test = plataformXbox.getName().equals(fortnite.getPlataforms()[1].getName());
+		test = plataformNintendo.getName().equals(fortnite.getPlataforms()[2].getName());
+		test = plataformSmartphone.getName().equals(fortnite.getPlataforms()[3].getName());
+		test = plataformPC.getName().equals(fortnite.getPlataforms()[4].getName());
 		assertTrue(test);
 	}
 	
 	private void stage3() {
-		fornite = new Fornite(false);
+		fortnite = new Fortnite(false);
 		player = new Player("Sarna", 0, 0, 1, 0, -1);
-		fornite.addPlayer(player, false);
+		fortnite.addPlayer(player, false);
 	}
 	@Test
 	public void testclasifyByGameProwessWithoutPlataform1() {
 		stage3();
-		assertNotNull(fornite.getNoobLow().getFront());
+		assertNotNull(fortnite.getNoobLow().getFront());
 	}
 	
 	private void stage4() {
-		fornite = new Fornite(false);
+		fortnite = new Fortnite(false);
 		player = new Player("Gamarra", 0, 0, 1, 200, -1);
-		fornite.addPlayer(player, false);
+		fortnite.addPlayer(player, false);
 	}
 	@Test
 	public void testclasifyByGameProwessWithoutPlataform2() {
 		stage4();
-		assertNotNull(fornite.getNoobMid().getFront());
+		assertNotNull(fortnite.getNoobMid().getFront());
 	}
 	
 	private void stage5() {
-		fornite = new Fornite(false);
+		fortnite = new Fortnite(false);
 		player = new Player("Camilo Barrios", 0, 0, 1, 500, -1);
-		fornite.addPlayer(player, false);
+		fortnite.addPlayer(player, false);
 	}
 	@Test
 	public void testclasifyByGameProwessWithoutPlataform3() {
 		stage5();
-		assertNotNull(fornite.getNoobHigh().getFront());
+		assertNotNull(fortnite.getNoobHigh().getFront());
 	}
 	
 	private void stage6() {
-		fornite = new Fornite(false);
+		fortnite = new Fortnite(false);
 		player = new Player("Reyes", 60, 20, 20, 50, 0);
-		fornite.addPlayer(player, false);
+		fortnite.addPlayer(player, false);
 	}
 	@Test
 	public void testclasifyByGameProwessWithoutPlataform4() {
 		stage6();
-		assertNotNull(fornite.getProLow().getFront());
+		assertNotNull(fortnite.getProLow().getFront());
 	}
 	
 }
