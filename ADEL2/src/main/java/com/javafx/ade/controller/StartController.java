@@ -5,7 +5,9 @@ import java.util.ResourceBundle;
 
 import com.ade.exceptions.EmptyFieldException;
 import com.ade.model.Fortnite;
+import com.ade.model.Plataform;
 import com.ade.model.Player;
+import com.ade.model.Weapon;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,6 +24,7 @@ import javafx.scene.control.TextField;
 public class StartController implements Initializable{
 	
 	private Fortnite fortnite;
+	private Player player;
 	
 	@FXML
 	private Button addPlayer;
@@ -70,6 +73,24 @@ public class StartController implements Initializable{
 
 	@FXML
 	private Label noobMid;
+	
+	@FXML
+    private Button pickWeapon;
+
+    @FXML
+    private Button shoot;
+
+    @FXML
+    private TextField actuallyWeapon;
+    
+    @FXML
+    private TextField ammo;
+	
+	@FXML
+    private Label txtPlatform;
+
+	@FXML
+    private CheckBox isPlatformMode;
 
 	public String getName() throws EmptyFieldException{
 		if(name.getText().equals("")) {
@@ -106,11 +127,45 @@ public class StartController implements Initializable{
 		}
 	}
 	
+	public String generateRandomWeapons() {
+		String[] names = {"Subfusil", "Minigun", "Scar", "M16", "Rifle", "Gun", "Sniper", "Shotgun"};
+		String randomWeapons = names[(int)(Math.floor(Math.random()*((names.length-1)-0+1)+0))];
+		return randomWeapons;
+	}
+	
+	public String generateRandomColors() {
+		String[] colors = {"Gray", "Green", "Blue", "Purple", "Orange", "Golden"};
+		String randomColors = colors[(int)(Math.floor(Math.random()*((colors.length-1)-0+1)+0))];
+		return randomColors;
+	}
+	
 	@FXML
-    private Label txtPlatform;
+	void pickWeapon(ActionEvent event) {
+		player.pickWeapon(new Weapon(36, generateRandomWeapons(), generateRandomColors()));
+		actuallyWeapon.setText(player.getWeapons().getTop().getName()+" "+player.getWeapons().getTop().getColor());
+		ammo.setText(player.getWeapons().getTop().getAmmo()+"");
+	}
 
 	@FXML
-    private CheckBox isPlatformMode;
+	void shoot(ActionEvent event) {
+		if(!player.getWeapons().isEmpty()) {
+			player.shoot();
+			if(player.getWeapons().isEmpty()) {
+				actuallyWeapon.setText("Pick");
+				ammo.setText("");
+			}else {
+				actuallyWeapon.setText(player.getWeapons().getTop().getName()+" "+player.getWeapons().getTop().getColor());
+				ammo.setText(player.getWeapons().getTop().getAmmo()+"");
+			
+			}
+		}else {
+			Alert message = new Alert(Alert.AlertType.ERROR);
+			message.setTitle("Oops!");
+			message.setContentText("Please pick a weapon and try it again");
+			message.setHeaderText("You don't have any weapon to shoot");
+			message.show();
+		}
+	}
 	
 	@FXML
 	void isPlatformMode(ActionEvent event) {
@@ -178,10 +233,13 @@ public class StartController implements Initializable{
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		player = new Player("Ninja", 20, 9, 10, 120, Plataform.PLAYSTATION);
 		fortnite = new Fortnite(false);
 		ObservableList<String> states = FXCollections.observableArrayList("PlayStation", "Xbox", "PC", "Smarthphone", "Nintendo Switch");
 		platforms.setItems(states);
 		platforms.getSelectionModel().select(0);
+		actuallyWeapon.setText("Pick");
+		ammo.setText("");
 	}
 	
 }
