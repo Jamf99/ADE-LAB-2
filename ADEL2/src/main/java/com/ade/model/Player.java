@@ -36,7 +36,6 @@ public class Player {
 		}else {
 			weapons.pop();
 		}
-		
 	}
 	
 	public void pickWeapon(Weapon weapon) {
