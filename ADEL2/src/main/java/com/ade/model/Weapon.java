@@ -3,10 +3,10 @@ package com.ade.model;
 public class Weapon {
 	
 	private int ammo;
-	private int name;
+	private String name;
 	private String color;
 	
-	public Weapon(int ammo, int name, String color) {
+	public Weapon(int ammo, String name, String color) {
 		this.ammo = ammo;
 		this.name = name;
 		this.color = color;
@@ -20,7 +20,7 @@ public class Weapon {
 		this.ammo = ammo;
 	}
 
-	public int getName() {
+	public String getName() {
 		return name;
 	}
 	
