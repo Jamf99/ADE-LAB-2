@@ -4,7 +4,7 @@ import com.ade.estructures.LinkedList;
 import com.ade.estructures.Queue;
 
 public class Plataform {
-	
+	//Atributes
 	public static final int PLAYSTATION = 0;
 	public static final int XBOX = 1;
 	public static final int NINTENDO_SWITCH = 2;
