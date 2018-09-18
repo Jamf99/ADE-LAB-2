@@ -30,9 +30,10 @@ public class Main extends Application {
 	
 	public static void main(String[] args) throws Exception {
 
-		if(reproductor == false){			
-			musica();
+		if(reproductor == false){	
 			launch(args);
+			musica();
+
 		}
 	}
     public static void musica()  throws Exception        
