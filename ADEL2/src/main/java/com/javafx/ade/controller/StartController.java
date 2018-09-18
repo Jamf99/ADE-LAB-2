@@ -151,7 +151,7 @@ public class StartController implements Initializable{
 		if(!player.getWeapons().isEmpty()) {
 			player.shoot();
 			if(player.getWeapons().isEmpty()) {
-				actuallyWeapon.setText("Pick");
+				actuallyWeapon.setText("Pickaxe");
 				ammo.setText("");
 			}else {
 				actuallyWeapon.setText(player.getWeapons().getTop().getName()+" "+player.getWeapons().getTop().getColor());
@@ -238,7 +238,7 @@ public class StartController implements Initializable{
 		ObservableList<String> states = FXCollections.observableArrayList("PlayStation", "Xbox", "PC", "Smarthphone", "Nintendo Switch");
 		platforms.setItems(states);
 		platforms.getSelectionModel().select(0);
-		actuallyWeapon.setText("Pick");
+		actuallyWeapon.setText("Pickaxe");
 		ammo.setText("");
 	}
 	
