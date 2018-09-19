@@ -26,18 +26,18 @@ public class Main extends Application {
 		
 		window.setScene(scene);
 		window.show();
+		System.exit(0);
 	}
 	
 	public static void main(String[] args) throws Exception {
 
 		if(reproductor == false){	
-			launch(args);
 			musica();
-
+			launch(args);
 		}
 	}
-    public static void musica()  throws Exception        
-    {
+	
+    public static void musica()  throws Exception {
         
         String sonido = "./data/sonido/Fortnite wav.wav";
         
@@ -46,7 +46,9 @@ public class Main extends Application {
         AudioStream audio = new AudioStream(in);
        
         AudioPlayer.player.start(audio);
+        
     }
-
+    
+ 
 	
 }
