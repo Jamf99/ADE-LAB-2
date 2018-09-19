@@ -26,7 +26,7 @@ public class Main extends Application {
 		
 		window.setScene(scene);
 		window.show();
-		System.exit(0);
+
 	}
 	
 	public static void main(String[] args) throws Exception {
